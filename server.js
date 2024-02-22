@@ -4,18 +4,15 @@ const app = express();
 const port = 3001;
 app.use(express.json())
 
-    app.get('/hello', (req, res ) => {
+    app.get('/say', (req, res ) => {
 
-        const name = req.query.name;
-        // const body = {
-        //     name: name
-        //   }
+        const word = req.query.keyword;
 
         const url = 'https://lfogkotg7oug3ce7ooeuwqy4f40eswnc.lambda-url.us-east-2.on.aws/'
 
         axios.get(url, {
             params: {
-                name: name
+                word
               }
           })
             .then(function (response) {
